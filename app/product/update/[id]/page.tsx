@@ -1,11 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
-const UpdatePage = ({ params }: { params: { id: string } }) => {
+const UpdatePage = ({ params }: { params: Promise<{ id: string }> }) => {
   // The update page will need an id in a url
-  const id = params.id;
+  const id = use(params).id;
   const [code, setCode] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
